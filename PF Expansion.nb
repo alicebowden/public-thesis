@@ -1,0 +1,4093 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    119874,       4085]
+NotebookOptionsPosition[    116255,       4014]
+NotebookOutlinePosition[    116648,       4030]
+CellTagsIndexPosition[    116605,       4027]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Spacetime", "Subsection",
+ CellChangeTimes->{
+  3.980324345003313*^9, {3.980324408240241*^9, 3.980324429137944*^9}, {
+   3.98059602172199*^9, 3.9805960227334223`*^9}, 3.981538124738825*^9, 
+   3.98541936516367*^9},ExpressionUUID->"a5e61278-0cde-482f-b7eb-\
+b56d4e49dd8a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Load", " ", 
+    RowBox[{"xAct", "."}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Block", "[", 
+  RowBox[{
+   RowBox[{"{", "Print", "}"}], ",", 
+   RowBox[{"<<", "xAct`xTras`"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"$DefInfoQ", "=", "False"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"$UndefInfoQ", "=", "False"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.981017150423143*^9, 3.981017171790655*^9}, 
+   3.983510130581355*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"31d86bf9-f8cd-4b37-81bb-1b66e7f29322"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"\\nFormTracer 2.3.7 loaded.\\n\\nCopyright (C) 2013-2018, \
+Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski, and Nils \
+Strodthoff.\\nFormTracer is released under the GNU General Public License \
+version three or later.\\n\\nIf used in scientific publications, please \
+acknowledge our work by citing:\\nA. K. Cyrol, M. Mitter, and N. Strodthoff, \
+Comput. Phys. Commun. 219C (2017) 346-352, arXiv:1610.09331 \
+[hep-ph]\\n\"\>"], "Print",
+ CellChangeTimes->{3.989300322810446*^9, 3.9893139677029963`*^9, 
+  3.9893888421203547`*^9, 3.989411329269764*^9, 3.989548343724416*^9, 
+  3.989597293361842*^9, 3.989636311485203*^9, 3.9896469332487373`*^9, 
+  3.989648687675261*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"63fba84f-fabb-4f42-aeda-14f0752205b2"],
+
+Cell[BoxData["\<\"Using FORM 4.2.0 (Jul  6 2017, v4.2.0) 64-bits.\"\>"], \
+"Print",
+ CellChangeTimes->{3.989300322810446*^9, 3.9893139677029963`*^9, 
+  3.9893888421203547`*^9, 3.989411329269764*^9, 3.989548343724416*^9, 
+  3.989597293361842*^9, 3.989636311485203*^9, 3.9896469332487373`*^9, 
+  3.989648688387561*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"4d76a2ec-823f-4bd0-8947-841128dd07bd"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Manifold", " ", "and", " ", 
+    RowBox[{"metric", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"DefManifold", "[", 
+    RowBox[{"SpaceTime", ",", "4", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "\[Mu]", ",", "\[Nu]", ",", "\[Alpha]", ",", "\[Beta]", ",", "\[Gamma]",
+        ",", "\[Sigma]", ",", "\[Rho]", ",", "\[Tau]", ",", "\[Kappa]"}], 
+      "}"}]}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"DefMetric", "[", 
+    RowBox[{
+     RowBox[{"+", "1"}], ",", " ", 
+     RowBox[{"metric", "[", 
+      RowBox[{
+       RowBox[{"-", "\[Mu]"}], ",", 
+       RowBox[{"-", "\[Nu]"}]}], "]"}], ",", "CD", ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<;\>\"", ",", "\"\<\[Del]\>\""}], "}"}], ",", 
+     RowBox[{"PrintAs", "\[Rule]", "\"\<g\>\""}]}], "]"}], " "}]}]], "Input",
+ CellChangeTimes->{{3.980324439204216*^9, 3.9803244753573837`*^9}, {
+   3.980324566778008*^9, 3.980324576389385*^9}, 3.9803271937205267`*^9, {
+   3.9804970575237093`*^9, 3.980497074523506*^9}, 3.98056879260002*^9, 
+   3.9817185421302853`*^9},
+ CellLabel->"In[5]:=",ExpressionUUID->"e51789e7-e20a-4e56-b585-c5591b3bb298"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Metric", " ", 
+    RowBox[{"perturbations", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"DefMetricPerturbation", "[", 
+    RowBox[{"metric", ",", "metricpert", ",", "\[Delta]\[Epsilon]", ",", 
+     RowBox[{"PrintAs", "\[Rule]", "\"\<\[Delta]g\>\""}]}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ConstantQ", "[", "\[Delta]\[Epsilon]", "]"}], "^=", "True"}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"DefTensor", "[", 
+    RowBox[{
+     RowBox[{"h", "[", 
+      RowBox[{
+       RowBox[{"-", "\[Mu]"}], ",", 
+       RowBox[{"-", "\[Nu]"}]}], "]"}], ",", "SpaceTime", ",", 
+     RowBox[{"Symmetric", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "\[Mu]"}], ",", 
+        RowBox[{"-", "\[Nu]"}]}], "}"}], "]"}], ",", 
+     RowBox[{"PrintAs", "\[Rule]", "\"\<h\>\""}]}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FluctLinearParam", "[", "expr_", "]"}], ":=", 
+    RowBox[{"expr", "/.", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"metricpert", "[", 
+         RowBox[{
+          RowBox[{"LI", "[", "1", "]"}], ",", "\[Mu]_", ",", "\[Nu]_"}], 
+         "]"}], "\[RuleDelayed]", 
+        RowBox[{"h", "[", 
+         RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"metricpert", "[", 
+          RowBox[{
+           RowBox[{"LI", "[", "n_", "]"}], ",", "\[Mu]_", ",", "\[Nu]_"}], 
+          "]"}], "/;", 
+         RowBox[{"n", ">=", "2"}]}], "\[RuleDelayed]", "0"}]}], 
+      "}"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.980324439204216*^9, 3.9803244753573837`*^9}, {
+  3.980324566778008*^9, 3.980324576389385*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"05cf82e2-c8bf-4af2-bada-6be9a93374a2"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.989647037944165*^9, 3.989647040349663*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"18ca4967-32b0-4b67-9d09-454aceb0696b"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["PF Expansion", "Section",
+ CellChangeTimes->{{3.989647047053349*^9, 
+  3.9896470523602037`*^9}},ExpressionUUID->"98127d22-05b4-4afa-9c9f-\
+a0801774cb74"],
+
+Cell[CellGroupData[{
+
+Cell["Set-up", "Subsection",
+ CellChangeTimes->{{3.9896470569726562`*^9, 
+  3.989647063592453*^9}},ExpressionUUID->"83c1333e-005f-4081-94c6-\
+d862dc2dad84"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"DefTensor", "[", 
+   RowBox[{
+    RowBox[{"A", "[", 
+     RowBox[{"-", "\[Mu]"}], "]"}], ",", "SpaceTime", ",", 
+    RowBox[{"PrintAs", "\[Rule]", "\"\<A\>\""}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefScalarFunction", "[", 
+  RowBox[{"Gk", ",", 
+   RowBox[{"PrintAs", "->", "\"\<\!\(\*SubscriptBox[\(G\), \(k\)]\)\>\""}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DefScalarFunction", "[", 
+   RowBox[{"\[CapitalGamma]k", ",", 
+    RowBox[{
+    "PrintAs", 
+     "->", "\"\<\!\(\*SubscriptBox[\(\[CapitalGamma]\), \(k\)]\)\>\""}]}], 
+   "]"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefScalarFunction", "[", 
+  RowBox[{"Gkdot", ",", 
+   RowBox[{
+   "PrintAs", 
+    "->", "\"\<\!\(\*SubscriptBox[OverscriptBox[\(G\), \(.\)], \
+\(k\)]\)\>\""}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefScalarFunction", "[", 
+  RowBox[{"Rkdot", ",", 
+   RowBox[{
+   "PrintAs", 
+    "->", "\"\<(\!\(\*SubscriptBox[\(\[PartialD]\), \
+\(t\)]\)\!\(\*SubscriptBox[\(R\), \(k\)]\))\>\""}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.989648118293227*^9, 3.9896481250152817`*^9}, 
+   3.989648167293096*^9, {3.989648677420391*^9, 3.989648697819808*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"2cedc321-fd7e-4f83-a4fb-c507d1ffe3ab"],
+
+Cell[BoxData[
+ RowBox[{"VarDRules", ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"VarD", "[", 
+       RowBox[{
+        RowBox[{"A", "[", "a_", "]"}], ",", "CD"}], "]"}], "[", 
+      RowBox[{"Rkdot", ",", " ", "b_"}], "]"}], "->", "0"}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"VarD", "[", 
+       RowBox[{
+        RowBox[{"A", "[", "a_", "]"}], ",", "CD"}], "]"}], "[", 
+      RowBox[{
+       RowBox[{"Gk", "[", "b_", "]"}], ",", " ", "c_"}], "]"}], "->", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"Gk", "[", 
+        RowBox[{"-", "a"}], "]"}]}], 
+      RowBox[{
+       SuperscriptBox["\[CapitalGamma]k", 
+        RowBox[{"(", "3", ")"}]], "[", 
+       RowBox[{"-", "a"}], "]"}], 
+      RowBox[{"Gk", "[", 
+       RowBox[{"-", "a"}], "]"}], " ", "c"}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"VarD", "[", 
+       RowBox[{
+        RowBox[{"A", "[", "a_", "]"}], ",", "CD"}], "]"}], "[", 
+      RowBox[{
+       RowBox[{"Gk", "[", "b_", "]"}], ",", " ", "c_"}], "]"}], "->", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"Gk", "[", 
+        RowBox[{"-", "a"}], "]"}]}], 
+      RowBox[{
+       SuperscriptBox["\[CapitalGamma]k", 
+        RowBox[{"(", "3", ")"}]], "[", 
+       RowBox[{"-", "a"}], "]"}], 
+      RowBox[{"Gk", "[", 
+       RowBox[{"-", "a"}], "]"}], " ", "c"}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"VarD", "[", 
+       RowBox[{
+        RowBox[{"A", "[", "a_", "]"}], ",", "CD"}], "]"}], "[", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["\[CapitalGamma]k", 
+         RowBox[{"(", "n_", ")"}]], "[", "b_", "]"}], ",", " ", "c_"}], "]"}],
+      "->", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[CapitalGamma]k", 
+        RowBox[{"(", 
+         RowBox[{"n", "+", "1"}], ")"}]], "[", 
+       RowBox[{"b", ",", 
+        RowBox[{"-", "a"}]}], "]"}], "c"}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"VarD", "[", 
+       RowBox[{
+        RowBox[{"A", "[", "a_", "]"}], ",", "CD"}], "]"}], "[", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["\[CapitalGamma]k", 
+         RowBox[{"(", "n_", ")"}]], "[", 
+        RowBox[{"b_", ",", "d_"}], "]"}], ",", " ", "c_"}], "]"}], "->", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[CapitalGamma]k", 
+        RowBox[{"(", 
+         RowBox[{"n", "+", "1"}], ")"}]], "[", 
+       RowBox[{"b", ",", "d", ",", 
+        RowBox[{"-", "a"}]}], "]"}], "c"}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"VarD", "[", 
+       RowBox[{
+        RowBox[{"A", "[", "a_", "]"}], ",", "CD"}], "]"}], "[", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["\[CapitalGamma]k", 
+         RowBox[{"(", "n_", ")"}]], "[", 
+        RowBox[{"b_", ",", "d_", ",", "e_"}], "]"}], ",", " ", "c_"}], "]"}], 
+     "->", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[CapitalGamma]k", 
+        RowBox[{"(", 
+         RowBox[{"n", "+", "1"}], ")"}]], "[", 
+       RowBox[{"b", ",", "d", ",", "e", ",", 
+        RowBox[{"-", "a"}]}], "]"}], "c"}]}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.989648970775456*^9, 3.989649034665964*^9}, {
+  3.989649065689541*^9, 3.989649102132021*^9}, {3.989649344767935*^9, 
+  3.989649359506702*^9}, {3.98964962136825*^9, 3.989649634940362*^9}, {
+  3.9896496659203463`*^9, 3.989649666706554*^9}, {3.9896497336922703`*^9, 
+  3.9896497676438103`*^9}, {3.989649875853199*^9, 3.989649886742179*^9}, {
+  3.989649927872525*^9, 3.989649953654999*^9}, {3.989650023559437*^9, 
+  3.9896500450130253`*^9}, {3.989650089466838*^9, 3.989650125336626*^9}},
+ CellLabel->"In[97]:=",ExpressionUUID->"0f8db542-9ef5-4d2c-97cb-d73f7096b819"],
+
+Cell[BoxData[
+ RowBox[{"WetterichEq", ":=", 
+  RowBox[{
+   FractionBox["1", "2"], 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"Gk", "[", "\[Gamma]", "]"}], " ", "Rkdot"}], ")"}]}]}]], "Input",\
+
+ CellChangeTimes->{{3.989647631325346*^9, 3.989647659671133*^9}, 
+   3.9896477409853497`*^9, {3.9896478031459417`*^9, 3.9896478089644012`*^9}, {
+   3.989647869735943*^9, 3.989647870407761*^9}, {3.98964803919587*^9, 
+   3.9896480798941193`*^9}, {3.989649680757143*^9, 3.989649686042392*^9}},
+ CellLabel->"In[69]:=",ExpressionUUID->"84b300cc-eb63-43e6-aca7-d34d55a03e97"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["WetterichEq"], "Input",
+ CellLabel->"In[70]:=",ExpressionUUID->"9586e05f-e482-4a4e-97d0-38a8f7e1431b"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "2"], " ", 
+  InterpretationBox[
+   StyleBox[
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["\[PartialD]", "t"], 
+      SubscriptBox["R", "k"]}], ")"}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`Rkdot,
+   Editable->False], " ", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["G", "k"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Gk,
+    Editable->False], "[", "\[Gamma]", "]"}]}]], "Output",
+ CellChangeTimes->{{3.989648076937565*^9, 3.989648082831056*^9}, 
+   3.989649689761055*^9},
+ CellLabel->"Out[70]=",ExpressionUUID->"853869cf-d7fe-40ac-bb0f-9cf9262de053"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Computation", "Subsection",
+ CellChangeTimes->{{3.989651984790694*^9, 
+  3.989651986426001*^9}},ExpressionUUID->"ca1f8593-860d-4d82-ab18-\
+f70baf4eebae"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"VarD", "[", 
+     RowBox[{
+      RowBox[{"A", "[", 
+       RowBox[{"-", "\[Mu]"}], "]"}], ",", "CD"}], "]"}], "[", "WetterichEq", 
+    "]"}], "/.", "VarDRules"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"VarD", "[", 
+     RowBox[{
+      RowBox[{"A", "[", 
+       RowBox[{"-", "\[Nu]"}], "]"}], ",", "CD"}], "]"}], "[", "%", "]"}], "/.",
+    "VarDRules"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"VarD", "[", 
+     RowBox[{
+      RowBox[{"A", "[", 
+       RowBox[{"-", "\[Rho]"}], "]"}], ",", "CD"}], "]"}], "[", "%", "]"}], "/.",
+    "VarDRules"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"PFOut", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"VarD", "[", 
+     RowBox[{
+      RowBox[{"A", "[", 
+       RowBox[{"-", "\[Sigma]"}], "]"}], ",", "CD"}], "]"}], "[", "%", "]"}], 
+   "/.", "VarDRules"}]}]}], "Input",
+ CellChangeTimes->{{3.981720425114452*^9, 3.981720476610223*^9}, {
+   3.9817206295780783`*^9, 3.981720641440792*^9}, {3.981720867747966*^9, 
+   3.981720974467627*^9}, {3.981721016757407*^9, 3.9817210384849*^9}, {
+   3.9817749095137987`*^9, 3.9817750082458267`*^9}, {3.981776032831221*^9, 
+   3.981776034189735*^9}, {3.9817761306192303`*^9, 3.981776132203928*^9}, 
+   3.981783398379039*^9, {3.98223417091271*^9, 3.982234196614131*^9}, {
+   3.982250189911647*^9, 3.9822501933448477`*^9}, 3.9828273834343863`*^9, {
+   3.9865544516075563`*^9, 3.986554478092441*^9}, {3.986554510199827*^9, 
+   3.9865545225819798`*^9}, {3.9865546185198097`*^9, 3.986554622817874*^9}, {
+   3.986555417300693*^9, 3.9865554219154367`*^9}, {3.986629681938787*^9, 
+   3.98662968579944*^9}, 3.9868848654817944`*^9, {3.9868849273370247`*^9, 
+   3.986884942197521*^9}, {3.989648259746574*^9, 3.98964826794002*^9}, {
+   3.989648530150609*^9, 3.989648531036025*^9}, 3.9896487208459682`*^9, 
+   3.989648885998665*^9, {3.98964893645149*^9, 3.989648953310607*^9}, {
+   3.989649164864794*^9, 3.989649237166582*^9}, 3.98964926899247*^9, {
+   3.989649506597185*^9, 3.9896495363343477`*^9}, 3.989649654281152*^9, 
+   3.989649700551868*^9, {3.9896499664533653`*^9, 3.989649974967071*^9}, 
+   3.989650067391718*^9, {3.989650132761735*^9, 3.989650140348319*^9}, {
+   3.989650188500025*^9, 3.9896502415439377`*^9}},
+ CellLabel->
+  "In[119]:=",ExpressionUUID->"0251e3d4-40fd-4fbd-a817-6c5567d5ee72"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"4", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Rho]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}]}], "+", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Rho]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}]}], "+", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}]}], "+", 
+  RowBox[{"4", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}]}], "-", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Rho]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}]}], "-", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Rho]"}], "]"}]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Rho]"}], "]"}]}], "-", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Sigma]"}], "]"}]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Sigma]"}], "]"}]}], "-", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Rho]"}], "]"}]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Rho]"}], "]"}]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Sigma]"}], "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Rho]"}], "]"}]}], "-", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Sigma]"}], "]"}]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Sigma]"}], "]"}]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Rho]"}], "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Sigma]"}], "]"}]}], "-", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Rho]", ",", "\[Sigma]"}], "]"}]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Rho]", ",", "\[Sigma]"}], "]"}]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Rho]", ",", "\[Sigma]"}], "]"}]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "5"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]", ",", "\[Rho]"}], "]"}]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "5"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]", ",", "\[Sigma]"}], "]"}]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "5"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Rho]", ",", "\[Sigma]"}], "]"}]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "5"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Rho]", ",", "\[Sigma]"}], "]"}]}], "-", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Mu]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "6"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]", ",", "\[Rho]", ",", "\[Sigma]"}], 
+    "]"}]}]}]], "Output",
+ CellChangeTimes->{
+  3.9896482696565647`*^9, {3.989648472754631*^9, 3.9896484856048*^9}, 
+   3.989648531920855*^9, 3.989648721859717*^9, 3.989648886845295*^9, {
+   3.989648939177569*^9, 3.9896489541625137`*^9}, {3.989649011787614*^9, 
+   3.989649037644661*^9}, {3.9896490824130783`*^9, 3.989649105980386*^9}, {
+   3.989649198252912*^9, 3.989649238407604*^9}, 3.989649269660164*^9, 
+   3.989649364221109*^9, {3.9896495045527487`*^9, 3.9896495374735537`*^9}, {
+   3.989649646013681*^9, 3.9896496553066587`*^9}, {3.989649693646825*^9, 
+   3.989649701482563*^9}, 3.989649893148983*^9, {3.989650030625725*^9, 
+   3.989650068653055*^9}, {3.989650128771134*^9, 3.9896501415033207`*^9}, {
+   3.989650208196089*^9, 3.989650247002809*^9}},
+ CellLabel->
+  "Out[122]=",ExpressionUUID->"80775c5d-563d-4c1f-84f9-795f59d4aed1"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{"DefConstantSymbol", "[", 
+  RowBox[{"eps3", ",", 
+   RowBox[{
+   "PrintAs", "->", "\"\<\!\(\*SubscriptBox[\(\[Epsilon]\), \(3\)]\)\>\""}]}],
+   "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefConstantSymbol", "[", 
+  RowBox[{"eps4", ",", 
+   RowBox[{
+   "PrintAs", "->", "\"\<\!\(\*SubscriptBox[\(\[Epsilon]\), \(4\)]\)\>\""}]}],
+   "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefConstantSymbol", "[", 
+  RowBox[{"eps5", ",", 
+   RowBox[{
+   "PrintAs", "->", "\"\<\!\(\*SubscriptBox[\(\[Epsilon]\), \(5\)]\)\>\""}]}],
+   "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefConstantSymbol", "[", 
+  RowBox[{"eps6", ",", 
+   RowBox[{
+   "PrintAs", "->", "\"\<\!\(\*SubscriptBox[\(\[Epsilon]\), \(6\)]\)\>\""}]}],
+   "]"}]}], "Input",
+ CellChangeTimes->{{3.989650647526723*^9, 3.989650700411113*^9}},
+ CellLabel->
+  "In[126]:=",ExpressionUUID->"29d20dff-6497-44ac-9897-65c05889cbc7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PFeps", "=", 
+  RowBox[{"PFOut", "/.", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[CapitalGamma]k", 
+        RowBox[{"(", "3", ")"}]], "[", "a_", "]"}], "->", 
+      RowBox[{"eps3", 
+       RowBox[{
+        SuperscriptBox["\[CapitalGamma]k", 
+         RowBox[{"(", "3", ")"}]], "[", "a", "]"}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[CapitalGamma]k", 
+        RowBox[{"(", "4", ")"}]], "[", 
+       RowBox[{"a_", ",", "b_"}], "]"}], "->", 
+      RowBox[{"eps4", " ", 
+       RowBox[{
+        SuperscriptBox["\[CapitalGamma]k", 
+         RowBox[{"(", "4", ")"}]], "[", 
+        RowBox[{"a", ",", "b"}], "]"}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[CapitalGamma]k", 
+        RowBox[{"(", "5", ")"}]], "[", 
+       RowBox[{"a_", ",", "b_", ",", "c_"}], "]"}], "->", 
+      RowBox[{"eps5", " ", 
+       RowBox[{
+        SuperscriptBox["\[CapitalGamma]k", 
+         RowBox[{"(", "5", ")"}]], "[", 
+        RowBox[{"a", ",", "b", ",", "c"}], "]"}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[CapitalGamma]k", 
+        RowBox[{"(", "6", ")"}]], "[", 
+       RowBox[{"a_", ",", "b_", ",", "c_", ",", "d_"}], "]"}], "->", 
+      RowBox[{"eps6", " ", 
+       RowBox[{
+        SuperscriptBox["\[CapitalGamma]k", 
+         RowBox[{"(", "6", ")"}]], "[", 
+        RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "]"}]}]}]}], 
+    "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.989650707051128*^9, 3.989650859353793*^9}, {
+  3.9896508898661013`*^9, 3.989650894639821*^9}},
+ CellLabel->
+  "In[131]:=",ExpressionUUID->"a5f72ac3-2d13-415f-b078-6cea7d2ee427"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"4", " ", 
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "4"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Rho]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}]}], "+", 
+  RowBox[{"2", " ", 
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "4"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Rho]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}]}], "+", 
+  RowBox[{"2", " ", 
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "4"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}]}], "+", 
+  RowBox[{"4", " ", 
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "4"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}]}], "-", 
+  RowBox[{"2", " ", 
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "4"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Rho]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}]}], "-", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "4"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}]}], "-", 
+  RowBox[{"2", " ", 
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "4"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Rho]"}], "]"}]}], "-", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "4"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Rho]"}], "]"}]}], "-", 
+  RowBox[{"2", " ", 
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "4"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Sigma]"}], "]"}]}], "-", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "4"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Sigma]"}], "]"}]}], "-", 
+  RowBox[{"2", " ", 
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "4"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Rho]"}], "]"}]}], "-", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "4"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Rho]"}], "]"}]}], "+", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "4"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps4,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Sigma]"}], "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Rho]"}], "]"}]}], "-", 
+  RowBox[{"2", " ", 
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "4"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Sigma]"}], "]"}]}], "-", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "4"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Sigma]"}], "]"}]}], "+", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "4"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps4,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Rho]"}], "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Sigma]"}], "]"}]}], "-", 
+  RowBox[{"2", " ", 
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "4"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Nu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Rho]", ",", "\[Sigma]"}], "]"}]}], "-", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "3"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps3,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "4"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps4,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Rho]", ",", "\[Sigma]"}], "]"}]}], "+", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[Epsilon]", "4"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`eps4,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "4"], "[", 
+    RowBox[{"\[Rho]", ",", "\[Sigma]"}], "]"}]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "3"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "5"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Sigma]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "5"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]", ",", "\[Rho]"}], "]"}]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "3"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "5"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Rho]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "5"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]", ",", "\[Sigma]"}], "]"}]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "3"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "5"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "5"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Rho]", ",", "\[Sigma]"}], "]"}]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "3"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "5"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Nu]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "5"], "[", 
+    RowBox[{"\[Nu]", ",", "\[Rho]", ",", "\[Sigma]"}], "]"}]}], "-", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["\[Epsilon]", "6"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`eps6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["\[PartialD]", "t"], 
+       SubscriptBox["R", "k"]}], ")"}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Rkdot,
+    Editable->False], " ", 
+   SuperscriptBox[
+    RowBox[{
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["G", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`Gk,
+      Editable->False], "[", "\[Mu]", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox[
+       SubscriptBox["\[CapitalGamma]", "k"],
+       ShowAutoStyles->False,
+       AutoSpacing->False],
+      $CellContext`\[CapitalGamma]k,
+      Editable->False], "6"], "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]", ",", "\[Rho]", ",", "\[Sigma]"}], 
+    "]"}]}]}]], "Output",
+ CellChangeTimes->{3.989650862329278*^9, 3.989650896669311*^9},
+ CellLabel->
+  "Out[131]=",ExpressionUUID->"01ec506c-667b-4441-9ad2-b9e0bb7bcb87"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TadpoleOut", "=", 
+  RowBox[{"Coefficient", "[", 
+   RowBox[{"PFeps", ",", "eps6"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9896508737967243`*^9, 3.9896509144880238`*^9}},
+ CellLabel->
+  "In[132]:=",ExpressionUUID->"d0520b06-0633-4f5d-a8db-cbc90883c45b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox["1", "2"]}], " ", 
+  InterpretationBox[
+   StyleBox[
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["\[PartialD]", "t"], 
+      SubscriptBox["R", "k"]}], ")"}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`Rkdot,
+   Editable->False], " ", 
+  SuperscriptBox[
+   RowBox[{
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["G", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`Gk,
+     Editable->False], "[", "\[Mu]", "]"}], "2"], " ", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[CapitalGamma]", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`\[CapitalGamma]k,
+     Editable->False], "6"], "[", 
+   RowBox[{"\[Mu]", ",", "\[Nu]", ",", "\[Rho]", ",", "\[Sigma]"}], 
+   "]"}]}]], "Output",
+ CellChangeTimes->{3.9896509111433268`*^9},
+ CellLabel->
+  "Out[132]=",ExpressionUUID->"508839b8-98ea-467b-9038-22b20e960a20"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BowTieOut", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Coefficient", "[", 
+     RowBox[{"PFeps", ",", 
+      SuperscriptBox["eps4", "2"]}], "]"}], "/.", 
+    RowBox[{
+     RowBox[{"Gk", "[", "_", "]"}], "->", "Gk"}]}], "/.", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "4", ")"}]], "[", 
+      RowBox[{"a_", ",", "b_"}], "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "4", ")"}]], "[", 
+      RowBox[{"c_", ",", "d_"}], "]"}]}], "->", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "4", ")"}]], "[", 
+      RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "4", ")"}]], "[", 
+      RowBox[{"\[Rho]", ",", "\[Sigma]"}], "]"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.989650948674021*^9, 3.9896509578960238`*^9}, {
+  3.989651286454422*^9, 3.989651353801127*^9}, {3.989651628741761*^9, 
+  3.989651663130973*^9}, {3.989651701118741*^9, 3.989651844702219*^9}},
+ CellLabel->
+  "In[150]:=",ExpressionUUID->"b06d66e0-eaf8-48fb-8145-63db9f7ec9d6"],
+
+Cell[BoxData[
+ RowBox[{"3", " ", 
+  SuperscriptBox[
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["G", "k"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Gk,
+    Editable->False], "3"], " ", 
+  InterpretationBox[
+   StyleBox[
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["\[PartialD]", "t"], 
+      SubscriptBox["R", "k"]}], ")"}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`Rkdot,
+   Editable->False], " ", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[CapitalGamma]", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`\[CapitalGamma]k,
+     Editable->False], "4"], "[", 
+   RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}], " ", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[CapitalGamma]", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`\[CapitalGamma]k,
+     Editable->False], "4"], "[", 
+   RowBox[{"\[Rho]", ",", "\[Sigma]"}], "]"}]}]], "Output",
+ CellChangeTimes->{
+  3.989650959061203*^9, {3.98965132594119*^9, 3.9896513542167263`*^9}, {
+   3.989651642835184*^9, 3.989651663501814*^9}, {3.989651753700199*^9, 
+   3.9896517751346893`*^9}, {3.989651839335387*^9, 3.989651845093523*^9}},
+ CellLabel->
+  "Out[150]=",ExpressionUUID->"bd2cc339-fcbc-418a-9a34-27b23ab3d3a1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SeaSunOut", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Coefficient", "[", 
+     RowBox[{"PFeps", ",", 
+      RowBox[{"eps5", " ", "eps3"}]}], "]"}], "/.", 
+    RowBox[{
+     RowBox[{"Gk", "[", "_", "]"}], "->", "Gk"}]}], "/.", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "5", ")"}]], "[", 
+      RowBox[{"a_", ",", "b_", ",", "c_"}], "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "d_", "]"}]}], "->", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "5", ")"}]], "[", 
+      RowBox[{"\[Mu]", ",", "\[Nu]", ",", "\[Rho]"}], "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "\[Sigma]", "]"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.9896509699173193`*^9, 3.9896509823177*^9}, {
+  3.9896518503356743`*^9, 3.989651880944714*^9}},
+ CellLabel->
+  "In[151]:=",ExpressionUUID->"3f539ffe-949d-42c0-9f2f-1397f09b42e4"],
+
+Cell[BoxData[
+ RowBox[{"4", " ", 
+  SuperscriptBox[
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["G", "k"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Gk,
+    Editable->False], "3"], " ", 
+  InterpretationBox[
+   StyleBox[
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["\[PartialD]", "t"], 
+      SubscriptBox["R", "k"]}], ")"}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`Rkdot,
+   Editable->False], " ", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[CapitalGamma]", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`\[CapitalGamma]k,
+     Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[CapitalGamma]", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`\[CapitalGamma]k,
+     Editable->False], "5"], "[", 
+   RowBox[{"\[Mu]", ",", "\[Nu]", ",", "\[Rho]"}], "]"}]}]], "Output",
+ CellChangeTimes->{3.989650983313952*^9, 3.989651882372642*^9},
+ CellLabel->
+  "Out[151]=",ExpressionUUID->"e0a26ae7-5454-4dc9-af42-978854500d2c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TriangleOut", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Coefficient", "[", 
+     RowBox[{"PFeps", ",", 
+      RowBox[{"eps4", " ", 
+       SuperscriptBox["eps3", "2"]}]}], "]"}], "/.", 
+    RowBox[{
+     RowBox[{"Gk", "[", "_", "]"}], "->", "Gk"}]}], "/.", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "4", ")"}]], "[", 
+      RowBox[{"a_", ",", "b_"}], "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "c_", "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "d_", "]"}]}], "->", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "4", ")"}]], "[", 
+      RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "\[Rho]", "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "\[Sigma]", "]"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.989650993033148*^9, 3.98965100405954*^9}, {
+  3.9896519018117323`*^9, 3.989651926864916*^9}},
+ CellLabel->
+  "In[152]:=",ExpressionUUID->"a29ef198-b484-4583-9c60-41c6e6f74def"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "18"}], " ", 
+  SuperscriptBox[
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["G", "k"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Gk,
+    Editable->False], "4"], " ", 
+  InterpretationBox[
+   StyleBox[
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["\[PartialD]", "t"], 
+      SubscriptBox["R", "k"]}], ")"}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`Rkdot,
+   Editable->False], " ", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[CapitalGamma]", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`\[CapitalGamma]k,
+     Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[CapitalGamma]", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`\[CapitalGamma]k,
+     Editable->False], "3"], "[", "\[Sigma]", "]"}], " ", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[CapitalGamma]", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`\[CapitalGamma]k,
+     Editable->False], "4"], "[", 
+   RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}]}]], "Output",
+ CellChangeTimes->{3.989651005605598*^9, 3.989651929882391*^9},
+ CellLabel->
+  "Out[152]=",ExpressionUUID->"eae9505c-9061-4c40-9b09-7ee9ecc1a5a3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BoxOut", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Coefficient", "[", 
+     RowBox[{"PFeps", ",", 
+      SuperscriptBox["eps3", "4"]}], "]"}], "/.", 
+    RowBox[{
+     RowBox[{"Gk", "[", "_", "]"}], "->", "Gk"}]}], "/.", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "a_", "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "b_", "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "c_", "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "d_", "]"}]}], "->", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "\[Mu]", "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "\[Nu]", "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "\[Rho]", "]"}], 
+     RowBox[{
+      SuperscriptBox["\[CapitalGamma]k", 
+       RowBox[{"(", "3", ")"}]], "[", "\[Sigma]", "]"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.989651014422317*^9, 3.989651026014344*^9}, {
+  3.9896519374872293`*^9, 3.989651965034213*^9}},
+ CellLabel->
+  "In[153]:=",ExpressionUUID->"9805ca92-6d5c-44e3-8a35-c68c2fa06768"],
+
+Cell[BoxData[
+ RowBox[{"12", " ", 
+  SuperscriptBox[
+   InterpretationBox[
+    StyleBox[
+     SubscriptBox["G", "k"],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Gk,
+    Editable->False], "5"], " ", 
+  InterpretationBox[
+   StyleBox[
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["\[PartialD]", "t"], 
+      SubscriptBox["R", "k"]}], ")"}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`Rkdot,
+   Editable->False], " ", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[CapitalGamma]", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`\[CapitalGamma]k,
+     Editable->False], "3"], "[", "\[Mu]", "]"}], " ", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[CapitalGamma]", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`\[CapitalGamma]k,
+     Editable->False], "3"], "[", "\[Nu]", "]"}], " ", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[CapitalGamma]", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`\[CapitalGamma]k,
+     Editable->False], "3"], "[", "\[Rho]", "]"}], " ", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox[
+      SubscriptBox["\[CapitalGamma]", "k"],
+      ShowAutoStyles->False,
+      AutoSpacing->False],
+     $CellContext`\[CapitalGamma]k,
+     Editable->False], "3"], "[", "\[Sigma]", "]"}]}]], "Output",
+ CellChangeTimes->{3.9896510269372263`*^9, 3.989651965410737*^9},
+ CellLabel->
+  "Out[153]=",ExpressionUUID->"80ee3ecd-21b2-4f7f-b4ec-537c4525e06e"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1436, 820},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (March 16, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"19ab8ef0-0470-4a04-a8f1-91522a3a3ee3"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 277, 5, 53, "Subsection",ExpressionUUID->"a5e61278-0cde-482f-b7eb-b56d4e49dd8a"],
+Cell[CellGroupData[{
+Cell[878, 31, 698, 18, 111, "Input",ExpressionUUID->"31d86bf9-f8cd-4b37-81bb-1b66e7f29322"],
+Cell[CellGroupData[{
+Cell[1601, 53, 792, 13, 70, "Print",ExpressionUUID->"63fba84f-fabb-4f42-aeda-14f0752205b2"],
+Cell[2396, 68, 420, 8, 70, "Print",ExpressionUUID->"4d76a2ec-823f-4bd0-8947-841128dd07bd"]
+}, Open  ]]
+}, Open  ]],
+Cell[2843, 80, 1172, 27, 70, "Input",ExpressionUUID->"e51789e7-e20a-4e56-b585-c5591b3bb298"],
+Cell[4018, 109, 1827, 47, 131, "Input",ExpressionUUID->"05cf82e2-c8bf-4af2-bada-6be9a93374a2"],
+Cell[5848, 158, 171, 2, 29, "Input",ExpressionUUID->"18ca4967-32b0-4b67-9d09-454aceb0696b"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6056, 165, 159, 3, 52, "Section",ExpressionUUID->"98127d22-05b4-4afa-9c9f-a0801774cb74"],
+Cell[CellGroupData[{
+Cell[6240, 172, 156, 3, 53, "Subsection",ExpressionUUID->"83c1333e-005f-4081-94c6-d862dc2dad84"],
+Cell[6399, 177, 1312, 33, 154, "Input",ExpressionUUID->"2cedc321-fd7e-4f83-a4fb-c507d1ffe3ab"],
+Cell[7714, 212, 3604, 103, 53, "Input",ExpressionUUID->"0f8db542-9ef5-4d2c-97cb-d73f7096b819"],
+Cell[11321, 317, 564, 12, 42, "Input",ExpressionUUID->"84b300cc-eb63-43e6-aca7-d34d55a03e97"],
+Cell[CellGroupData[{
+Cell[11910, 333, 116, 1, 29, "Input",ExpressionUUID->"9586e05f-e482-4a4e-97d0-38a8f7e1431b"],
+Cell[12029, 336, 683, 23, 45, "Output",ExpressionUUID->"853869cf-d7fe-40ac-bb0f-9cf9262de053"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12761, 365, 159, 3, 53, "Subsection",ExpressionUUID->"ca1f8593-860d-4d82-ab18-f70baf4eebae"],
+Cell[CellGroupData[{
+Cell[12945, 372, 2397, 53, 90, "Input",ExpressionUUID->"0251e3d4-40fd-4fbd-a817-6c5567d5ee72"],
+Cell[15345, 427, 39555, 1403, 170, "Output",ExpressionUUID->"80775c5d-563d-4c1f-84f9-795f59d4aed1"]
+}, Open  ]],
+Cell[54915, 1833, 890, 23, 90, "Input",ExpressionUUID->"29d20dff-6497-44ac-9897-65c05889cbc7"],
+Cell[CellGroupData[{
+Cell[55830, 1860, 1671, 47, 31, "Input",ExpressionUUID->"a5f72ac3-2d13-415f-b078-6cea7d2ee427"],
+Cell[57504, 1909, 46656, 1692, 190, "Output",ExpressionUUID->"01ec506c-667b-4441-9ad2-b9e0bb7bcb87"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[104197, 3606, 280, 6, 29, "Input",ExpressionUUID->"d0520b06-0633-4f5d-a8db-cbc90883c45b"],
+Cell[104480, 3614, 1011, 36, 45, "Output",ExpressionUUID->"508839b8-98ea-467b-9038-22b20e960a20"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[105528, 3655, 1166, 32, 31, "Input",ExpressionUUID->"b06d66e0-eaf8-48fb-8145-63db9f7ec9d6"],
+Cell[106697, 3689, 1383, 45, 33, "Output",ExpressionUUID->"bd2cc339-fcbc-418a-9a34-27b23ab3d3a1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[108117, 3739, 1039, 29, 29, "Input",ExpressionUUID->"3f539ffe-949d-42c0-9f2f-1397f09b42e4"],
+Cell[109159, 3770, 1193, 41, 33, "Output",ExpressionUUID->"e0a26ae7-5454-4dc9-af42-978854500d2c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[110389, 3816, 1263, 36, 31, "Input",ExpressionUUID->"a29ef198-b484-4583-9c60-41c6e6f74def"],
+Cell[111655, 3854, 1458, 51, 33, "Output",ExpressionUUID->"eae9505c-9061-4c40-9b09-7ee9ecc1a5a3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[113150, 3910, 1388, 39, 31, "Input",ExpressionUUID->"9805ca92-6d5c-44e3-8a35-c68c2fa06768"],
+Cell[114541, 3951, 1674, 58, 33, "Output",ExpressionUUID->"80ee3ecd-21b2-4f7f-b4ec-537c4525e06e"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
