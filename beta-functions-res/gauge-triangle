@@ -1,0 +1,14 @@
+{((-4*betah^2*(-10 + etah0)*(157*kappa1 + 116*kappa2))/
+    (15*(-3 + betah)^2*(1 - 2*\[CapitalLambda]0)^2) + 
+   ((-10 + etahTT)*(179*kappa1 + 316*kappa2))/
+    (3*(1 - 2*\[CapitalLambda]TT)^2) - 2*(-10 + etaA)*
+    ((-4*betah^2*(157*kappa1 + 116*kappa2))/(15*(-3 + betah)^2*
+       (-1 + 2*\[CapitalLambda]0)) + (179*kappa1 + 316*kappa2)/
+      (-3 + 6*\[CapitalLambda]TT)))/(1280*Pi^2), 
+ ((-2*betah^2*(-10 + etah0)*(9*kappa1 + 92*kappa2))/
+    (5*(-3 + betah)^2*(1 - 2*\[CapitalLambda]0)^2) + 
+   ((-10 + etahTT)*(63*kappa1 + 172*kappa2))/
+    (2*(1 - 2*\[CapitalLambda]TT)^2) - 2*(-10 + etaA)*
+    ((-2*betah^2*(9*kappa1 + 92*kappa2))/(5*(-3 + betah)^2*
+       (-1 + 2*\[CapitalLambda]0)) + (63*kappa1 + 172*kappa2)/
+      (-2 + 4*\[CapitalLambda]TT)))/(1280*Pi^2)}

@@ -1,0 +1,58 @@
+{((18720*betah*(3 + betah^2)*(-1 + 2*\[CapitalLambda]0)*
+     (-1 + 2*\[CapitalLambda]TT)*(etahTT*(-1 + 2*\[CapitalLambda]0) - 
+      12*(-1 + \[CapitalLambda]0 + \[CapitalLambda]TT) + 
+      etah0*(-1 + 2*\[CapitalLambda]TT)))/(-3 + betah)^2 - 
+   (624*betah^3*(3 + betah^2)*(-1 + 2*\[CapitalLambda]TT)*
+     ((-16*(3 + betah^2)*(-6 + etah0)*(1 - 2*\[CapitalLambda]TT)^2)/
+       (-3 + betah)^2 - 10*(-1 + 2*\[CapitalLambda]0)*
+       (etahTT*(-1 + 2*\[CapitalLambda]0) - 12*(-1 + \[CapitalLambda]0 + 
+          \[CapitalLambda]TT) + etah0*(-1 + 2*\[CapitalLambda]TT))))/
+    (-3 + betah)^2 + 90*(-1 + 2*\[CapitalLambda]0)*
+    (146*(-6 + etahTT)*(1 - 2*\[CapitalLambda]0)^2 - 
+     (312*(3 + betah^2)*(-1 + 2*\[CapitalLambda]TT)*
+       (etahTT*(-1 + 2*\[CapitalLambda]0) - 12*(-1 + \[CapitalLambda]0 + 
+          \[CapitalLambda]TT) + etah0*(-1 + 2*\[CapitalLambda]TT)))/
+      (-3 + betah)^2) + 6*betah^2*
+    (1460*(-6 + etahTT)*(-1 + 2*\[CapitalLambda]0)^3 + 
+     (2496*(3 + betah^2)^2*(-6 + etah0)*(-1 + 2*\[CapitalLambda]TT)^3)/
+      (-3 + betah)^4 + (560*(3 + betah^2)*(-1 + 2*\[CapitalLambda]0)*
+       (-1 + 2*\[CapitalLambda]TT)*(etahTT*(-1 + 2*\[CapitalLambda]0) - 
+        12*(-1 + \[CapitalLambda]0 + \[CapitalLambda]TT) + 
+        etah0*(-1 + 2*\[CapitalLambda]TT)))/(-3 + betah)^2) + 
+   5*betah^4*(292*(-6 + etahTT)*(-1 + 2*\[CapitalLambda]0)^3 + 
+     (640*(3 + betah^2)^2*(-6 + etah0)*(-1 + 2*\[CapitalLambda]TT)^3)/
+      (-3 + betah)^4 + (848*(3 + betah^2)*(-1 + 2*\[CapitalLambda]0)*
+       (-1 + 2*\[CapitalLambda]TT)*(etahTT*(-1 + 2*\[CapitalLambda]0) - 
+        12*(-1 + \[CapitalLambda]0 + \[CapitalLambda]TT) + 
+        etah0*(-1 + 2*\[CapitalLambda]TT)))/(-3 + betah)^2))/
+  (207360*(3 + betah^2)^2*Pi^2*(-1 + 2*\[CapitalLambda]0)^3*
+   (-1 + 2*\[CapitalLambda]TT)^3), 
+ ((-5760*betah*(3 + betah^2)*(-1 + 2*\[CapitalLambda]0)*
+     (-1 + 2*\[CapitalLambda]TT)*(etahTT*(-1 + 2*\[CapitalLambda]0) - 
+      12*(-1 + \[CapitalLambda]0 + \[CapitalLambda]TT) + 
+      etah0*(-1 + 2*\[CapitalLambda]TT)))/(-3 + betah)^2 + 
+   (192*betah^3*(3 + betah^2)*(-1 + 2*\[CapitalLambda]TT)*
+     ((-16*(3 + betah^2)*(-6 + etah0)*(1 - 2*\[CapitalLambda]TT)^2)/
+       (-3 + betah)^2 - 10*(-1 + 2*\[CapitalLambda]0)*
+       (etahTT*(-1 + 2*\[CapitalLambda]0) - 12*(-1 + \[CapitalLambda]0 + 
+          \[CapitalLambda]TT) + etah0*(-1 + 2*\[CapitalLambda]TT))))/
+    (-3 + betah)^2 - 90*(-1 + 2*\[CapitalLambda]0)*
+    (-142*(-6 + etahTT)*(1 - 2*\[CapitalLambda]0)^2 - 
+     (96*(3 + betah^2)*(-1 + 2*\[CapitalLambda]TT)*
+       (etahTT*(-1 + 2*\[CapitalLambda]0) - 12*(-1 + \[CapitalLambda]0 + 
+          \[CapitalLambda]TT) + etah0*(-1 + 2*\[CapitalLambda]TT)))/
+      (-3 + betah)^2) + 20*betah^4*
+    (71*(-6 + etahTT)*(-1 + 2*\[CapitalLambda]0)^3 + 
+     (32*(3 + betah^2)^2*(-6 + etah0)*(-1 + 2*\[CapitalLambda]TT)^3)/
+      (-3 + betah)^4 - (56*(3 + betah^2)*(-1 + 2*\[CapitalLambda]0)*
+       (-1 + 2*\[CapitalLambda]TT)*(etahTT*(-1 + 2*\[CapitalLambda]0) - 
+        12*(-1 + \[CapitalLambda]0 + \[CapitalLambda]TT) + 
+        etah0*(-1 + 2*\[CapitalLambda]TT)))/(-3 + betah)^2) - 
+   6*betah^2*(-1420*(-6 + etahTT)*(-1 + 2*\[CapitalLambda]0)^3 + 
+     (768*(3 + betah^2)^2*(-6 + etah0)*(-1 + 2*\[CapitalLambda]TT)^3)/
+      (-3 + betah)^4 + (80*(3 + betah^2)*(-1 + 2*\[CapitalLambda]0)*
+       (-1 + 2*\[CapitalLambda]TT)*(etahTT*(-1 + 2*\[CapitalLambda]0) - 
+        12*(-1 + \[CapitalLambda]0 + \[CapitalLambda]TT) + 
+        etah0*(-1 + 2*\[CapitalLambda]TT)))/(-3 + betah)^2))/
+  (138240*(3 + betah^2)^2*Pi^2*(-1 + 2*\[CapitalLambda]0)^3*
+   (-1 + 2*\[CapitalLambda]TT)^3)}
